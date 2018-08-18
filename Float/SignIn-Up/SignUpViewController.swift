@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Photos
+import CoreGraphics
 
 class SignUpViewController: UITableViewController {
     
@@ -46,6 +47,8 @@ class SignUpViewController: UITableViewController {
         guard let password = passwordTextField.text else {return}
         guard let profilePic = profileImage.image else {return}
         
+        let sv = UIViewController.displaySpinner(onView: self.view)
+        
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if error == nil && user != nil {
                     self.uploadProfileImage(profilePic, completion: { (url) in
@@ -58,6 +61,7 @@ class SignUpViewController: UITableViewController {
                                     print("Worked")
                                     self.saveProfileImage(name: fullName, email: email, profileImageURL: url!) { success in
                                         if success {
+                                            UIViewController.removeSpinner(spinner: sv)
                                             self.loadNextVC()
                                         } else {
                                             self.presentErrorPopUp(message: (error?.localizedDescription)!)
@@ -129,11 +133,8 @@ class SignUpViewController: UITableViewController {
     }
     
     func loadNextVC() {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "floatNavigation") as? UITabBarController {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
-        }
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "Onboard")
+        self.present(vc!, animated: true, completion: nil)
     }
-
+    
 }

@@ -806,7 +806,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mj9-sq-iHH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2919.1999999999998" y="1052.9235382308846"/>
+            <point key="canvasLocation" x="-3934" y="1051"/>
         </scene>
         <!--Create New Account-->
         <scene sceneID="F3u-jP-zTX">
@@ -1001,7 +1001,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OJf-5S-4wz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2079.1999999999998" y="1826.5367316341831"/>
+            <point key="canvasLocation" x="-3094" y="1825"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nyb-xx-z7Z">
@@ -1017,7 +1017,51 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCh-4r-Hpw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2919" y="1827"/>
+            <point key="canvasLocation" x="-3934" y="1825"/>
+        </scene>
+        <!--Explaination View Controller-->
+        <scene sceneID="zjC-sY-c0l">
+            <objects>
+                <viewController storyboardIdentifier="Onboard" id="sfg-Xk-9vF" customClass="ExplainationViewController" customModule="Float" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Kjj-Mt-JGe">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NJc-Hv-12L" customClass="Onboarding" customModule="Float" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhi-PQ-xPe">
+                                <rect key="frame" x="105" y="500" width="169" height="51"/>
+                                <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="28"/>
+                                <state key="normal" title="Get Started!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="cBD-LB-d2t" kind="presentation" id="Btq-s9-euq"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="vhi-PQ-xPe" firstAttribute="leading" secondItem="EaA-f9-YmJ" secondAttribute="leading" constant="105" id="E8H-ZH-E9c"/>
+                            <constraint firstItem="NJc-Hv-12L" firstAttribute="top" secondItem="Kjj-Mt-JGe" secondAttribute="top" id="KL0-v2-RDu"/>
+                            <constraint firstItem="NJc-Hv-12L" firstAttribute="leading" secondItem="EaA-f9-YmJ" secondAttribute="leading" id="OMc-ae-89T"/>
+                            <constraint firstItem="EaA-f9-YmJ" firstAttribute="trailing" secondItem="vhi-PQ-xPe" secondAttribute="trailing" constant="101" id="SlQ-zK-hhv"/>
+                            <constraint firstItem="EaA-f9-YmJ" firstAttribute="bottom" secondItem="vhi-PQ-xPe" secondAttribute="bottom" constant="116" id="W7l-eS-3hL"/>
+                            <constraint firstItem="NJc-Hv-12L" firstAttribute="bottom" secondItem="EaA-f9-YmJ" secondAttribute="bottom" id="bYo-5p-z72"/>
+                            <constraint firstItem="NJc-Hv-12L" firstAttribute="trailing" secondItem="EaA-f9-YmJ" secondAttribute="trailing" id="m41-ya-Fq0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="EaA-f9-YmJ"/>
+                    </view>
+                    <connections>
+                        <outlet property="getStartedBtn" destination="vhi-PQ-xPe" id="hzO-fC-TQg"/>
+                        <outlet property="onboardingView" destination="NJc-Hv-12L" id="kLA-bv-CfK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UOV-8P-bMA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2252" y="1002.5487256371815"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AOZ-Sj-e3U">
@@ -1168,7 +1212,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wbM-IX-kUl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2164" y="246.9265367316342"/>
+            <point key="canvasLocation" x="-3178" y="245"/>
         </scene>
         <!--Profile-->
         <scene sceneID="WD2-gZ-zBw">
@@ -1462,7 +1506,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kJ3-Bk-tFb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2919" y="247"/>
+            <point key="canvasLocation" x="-3934" y="245"/>
         </scene>
     </scenes>
     <resources>

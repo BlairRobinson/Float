@@ -41,12 +41,14 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - paper-onboarding (4.1.0)
 
 DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - paper-onboarding
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -61,6 +63,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - paper-onboarding
 
 SPEC CHECKSUMS:
   Firebase: d66f4f29c23f22d96808d9abc174d81d8eee968f
@@ -74,7 +77,8 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  paper-onboarding: 344780cbb0bfc229cd1862f5b9bba446b23c5185
 
-PODFILE CHECKSUM: b0ffb943fceb97390aba3286c518bc0a3ff9d303
+PODFILE CHECKSUM: 1626fb7875a1d05b434abe90104d03aed81f56e9
 
 COCOAPODS: 1.5.3

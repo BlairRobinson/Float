@@ -32,6 +32,8 @@ class ProfileViewController: UITableViewController {
 
     @IBAction func logoutBtnPressed(_ sender: Any) {
         try! Auth.auth().signOut()
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "homeController")
+        self.present(vc!, animated: true, completion: nil)
     }
     
     

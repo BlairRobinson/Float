@@ -29,6 +29,9 @@
 		EAAEE23D21039BC5007D9B08 /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */; };
 		EAAEE2412103A177007D9B08 /* SignUpImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */; };
 		EAC1BC76211EFBD700EACC95 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */; };
+		EAC2C8EF212849BA009C98AA /* ExplainationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */; };
+		EAC2C8F1212851C6009C98AA /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8F0212851C6009C98AA /* Onboarding.swift */; };
+		EAC2C8F3212866E8009C98AA /* LoadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8F2212866E8009C98AA /* LoadExtension.swift */; };
 		EACF98AC20FB5F24000CF74E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF98AB20FB5F24000CF74E /* HomeViewController.swift */; };
 		EACF98AE20FB80EC000CF74E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */; };
 		EAD6451420FA71870038541C /* FloatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6451320FA71870038541C /* FloatTableViewController.swift */; };
@@ -62,6 +65,9 @@
 		EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
 		EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpImageExtension.swift; sourceTree = "<group>"; };
 		EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainationViewController.swift; sourceTree = "<group>"; };
+		EAC2C8F0212851C6009C98AA /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		EAC2C8F2212866E8009C98AA /* LoadExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadExtension.swift; sourceTree = "<group>"; };
 		EACF98AB20FB5F24000CF74E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAD6451320FA71870038541C /* FloatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatTableViewController.swift; sourceTree = "<group>"; };
@@ -162,6 +168,7 @@
 				EA3EA93D20F3E9F20036FCBB /* FloatTableViewCell.swift */,
 				EAD6451320FA71870038541C /* FloatTableViewController.swift */,
 				EA2DD53D21064B1800B330DB /* AddFloatViewController.swift */,
+				EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -191,6 +198,8 @@
 			children = (
 				EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */,
 				EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */,
+				EAC2C8F0212851C6009C98AA /* Onboarding.swift */,
+				EAC2C8F2212866E8009C98AA /* LoadExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -296,6 +305,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -303,6 +313,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -340,6 +351,7 @@
 				EA3EA92C20F3C47B0036FCBB /* Float.xcdatamodeld in Sources */,
 				EAD7CCDA2122111F00122DA5 /* CommentTableViewCell.swift in Sources */,
 				EA350091211B7C99007EE5CB /* CommentTableViewController.swift in Sources */,
+				EAC2C8F1212851C6009C98AA /* Onboarding.swift in Sources */,
 				EA3EA94320F3EA560036FCBB /* Float.swift in Sources */,
 				EAAEE2412103A177007D9B08 /* SignUpImageExtension.swift in Sources */,
 				EA802BE620F5395E0028587B /* LeaderboardTableViewController.swift in Sources */,
@@ -352,8 +364,10 @@
 				EAD6451420FA71870038541C /* FloatTableViewController.swift in Sources */,
 				EA2DD53E21064B1800B330DB /* AddFloatViewController.swift in Sources */,
 				EAD7CCD82122096C00122DA5 /* Comment.swift in Sources */,
+				EAC2C8EF212849BA009C98AA /* ExplainationViewController.swift in Sources */,
 				EA255C8520FBD76100019635 /* ProfileViewController.swift in Sources */,
 				EA2DD5432106769500B330DB /* ImageService.swift in Sources */,
+				EAC2C8F3212866E8009C98AA /* LoadExtension.swift in Sources */,
 				EACF98AC20FB5F24000CF74E /* HomeViewController.swift in Sources */,
 				EA3EA92420F3C47B0036FCBB /* AppDelegate.swift in Sources */,
 			);

@@ -30,10 +30,11 @@ class SignInViewController: UITableViewController {
     @IBAction func signInBtnPressed(_ sender: Any) {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
-        
+         let sv = UIViewController.displaySpinner(onView: self.view)
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error == nil && user != nil {
+                UIViewController.removeSpinner(spinner: sv)
                self.loadNextVC()
             }
             else {
@@ -48,11 +49,8 @@ class SignInViewController: UITableViewController {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func loadNextVC() {
-        if let viewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "floatNavigation") as? UITabBarController {
-            if let navigator = navigationController {
-                navigator.pushViewController(viewController, animated: true)
-            }
+        func loadNextVC() {
+            let vc = self.storyboard?.instantiateViewController(withIdentifier: "floatNavigation") as? UITabBarController
+            self.present(vc!, animated: true, completion: nil)
         }
-    }
 }
