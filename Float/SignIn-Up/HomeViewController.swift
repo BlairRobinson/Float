@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signInBtn.layer.cornerRadius = 30
+        signUpBtn.layer.cornerRadius = 30
     }
     
     override var preferredStatusBarStyle : UIStatusBarStyle {

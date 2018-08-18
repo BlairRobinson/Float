@@ -17,6 +17,7 @@ class SignInViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        signInBtn.layer.cornerRadius = 30
         self.hideKeyboardWhenTapped()
     }
 

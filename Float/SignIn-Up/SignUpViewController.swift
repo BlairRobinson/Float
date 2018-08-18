@@ -119,6 +119,7 @@ class SignUpViewController: UITableViewController {
     
     func formatLayers(){
         profileImage.layer.cornerRadius = profileImage.frame.height / 2.0
+        signUpBtn.layer.cornerRadius = 30
     }
     
     func presentErrorPopUp(message: String) {
