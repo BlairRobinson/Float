@@ -33,7 +33,7 @@ class ExplainationViewController: UIViewController, PaperOnboardingDataSource, P
         return [
             OnboardingItemInfo(informationImage: UIImage(named: "create")!,
                            title: "Float up your idea",
-                           description: "Have an idea and what to see what others think? Float up an idea and get feeback pn your idea.",
+                           description: "Have an idea and want to see what others think? Float up an idea and get feeback on your idea.",
                            pageIcon: UIImage(),
                            color: backgroundColourOne,
                            titleColor: UIColor.white,

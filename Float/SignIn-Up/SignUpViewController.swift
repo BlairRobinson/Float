@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import KRProgressHUD
 import KRActivityIndicatorView
+import Photos
 
 
 class SignUpViewController: UITableViewController {
@@ -26,6 +27,7 @@ class SignUpViewController: UITableViewController {
         super.viewDidLoad()
         formatLayers()
         self.hideKeyboardWhenTapped()
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,7 +40,13 @@ class SignUpViewController: UITableViewController {
     }
     
     @IBAction func changeProfileBtnPressed(_ sender: Any) {
-        self.present(picker, animated: true, completion: nil)
+        PHPhotoLibrary.requestAuthorization({
+            (newStatus) in
+            if newStatus ==  PHAuthorizationStatus.authorized {
+                /* do stuff here */
+                self.present(self.picker, animated: true, completion: nil)
+            }
+        })
     }
     
     
@@ -66,19 +74,23 @@ class SignUpViewController: UITableViewController {
                                             self.loadNextVC()
                                         } else {
                                             KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
+                                            AudioServicesPlaySystemSound(1519)
                                         }
                                     }
                                 } else {
                                    KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
+                                    AudioServicesPlaySystemSound(1519)
                                 }
                             })
                         } else {
                             KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
+                            AudioServicesPlaySystemSound(1519)
                         }
                         
                     })
                 } else {
                    KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
+                    AudioServicesPlaySystemSound(1519)
                 }
             
         }

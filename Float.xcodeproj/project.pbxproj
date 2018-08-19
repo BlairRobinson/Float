@@ -147,7 +147,7 @@
 				EACF98AA20FB5EF4000CF74E /* SignIn-Up */,
 				EA802BE220F538490028587B /* Leaderboard */,
 				EA3EA93F20F3E9F80036FCBB /* Model */,
-				EA3EA93C20F3E7510036FCBB /* Home */,
+				EA3EA93C20F3E7510036FCBB /* Feed */,
 				EA3EA92320F3C47B0036FCBB /* AppDelegate.swift */,
 				EA3EA92720F3C47B0036FCBB /* Main.storyboard */,
 				EA3EA92D20F3C47D0036FCBB /* Assets.xcassets */,
@@ -159,16 +159,15 @@
 			path = Float;
 			sourceTree = "<group>";
 		};
-		EA3EA93C20F3E7510036FCBB /* Home */ = {
+		EA3EA93C20F3E7510036FCBB /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				EA49D6E52129DAB70085BF69 /* AddFloat */,
 				EAC1BC74211EFB8600EACC95 /* Comments */,
 				EA3EA93D20F3E9F20036FCBB /* FloatTableViewCell.swift */,
 				EAD6451320FA71870038541C /* FloatTableViewController.swift */,
-				EA2DD53D21064B1800B330DB /* AddFloatViewController.swift */,
-				EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */,
 			);
-			path = Home;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		EA3EA93F20F3E9F80036FCBB /* Model */ = {
@@ -179,6 +178,23 @@
 				EAD7CCD72122096C00122DA5 /* Comment.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		EA49D6E52129DAB70085BF69 /* AddFloat */ = {
+			isa = PBXGroup;
+			children = (
+				EA2DD53D21064B1800B330DB /* AddFloatViewController.swift */,
+			);
+			path = AddFloat;
+			sourceTree = "<group>";
+		};
+		EA49D6E62129DAD50085BF69 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				EAC2C8F0212851C6009C98AA /* Onboarding.swift */,
+				EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		EA802BE220F538490028587B /* Leaderboard */ = {
@@ -196,7 +212,6 @@
 			children = (
 				EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */,
 				EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */,
-				EAC2C8F0212851C6009C98AA /* Onboarding.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -214,6 +229,7 @@
 		EACF98AA20FB5EF4000CF74E /* SignIn-Up */ = {
 			isa = PBXGroup;
 			children = (
+				EA49D6E62129DAD50085BF69 /* Onboarding */,
 				EACF98AB20FB5F24000CF74E /* HomeViewController.swift */,
 				EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */,
 				EAAE81B320FFD58100EF7CF0 /* SignInViewController.swift */,

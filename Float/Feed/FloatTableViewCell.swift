@@ -8,12 +8,14 @@
 
 import UIKit
 import Firebase
+import AudioToolbox
 
 class FloatTableViewCell: UITableViewCell {
     
     let red = UIColor(red: 255/255, green: 74/255, blue: 0/255, alpha: 1)
     let cUId = Auth.auth().currentUser!.uid
     var hasDisliked:Bool = true
+    var currentLikes: Int!
     
     @IBOutlet weak var float_written_by: UILabel!
     @IBOutlet weak var float_when_written: UILabel!
@@ -33,11 +35,14 @@ class FloatTableViewCell: UITableViewCell {
         if hasDisliked {
             hasDisliked = false
             likeBtn.setImage(UIImage(named: "LikeBtnPressed"), for: .normal)
-            float_likes.text = String(float.likes)
+            currentLikes = currentLikes + 1
+            float_likes.text = String(currentLikes)
+            AudioServicesPlaySystemSound(1519)
         } else {
             hasDisliked = true
             likeBtn.setImage(UIImage(named: "Like"), for: .normal)
-            float_likes.text = String(float.likes - 1)
+            currentLikes = currentLikes - 1
+            float_likes.text = String(currentLikes)
         }
         float.like()
     }
@@ -65,6 +70,7 @@ class FloatTableViewCell: UITableViewCell {
             float_description.text = float.float_idea
             float_likes.text = String(float.likes)
             float_comments.text = String(float.comments)
+            currentLikes = float.likes
         }
     }
     

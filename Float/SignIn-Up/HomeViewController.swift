@@ -20,11 +20,23 @@ class HomeViewController: UIViewController {
         signUpBtn.layer.cornerRadius = 30
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if Auth.auth().currentUser != nil {
+            self.loadNextVC()
+        }
+    }
+    
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         UIApplication.shared.statusBarStyle = .default
+    }
+    
+    func loadNextVC() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "floatNavigation") as? UITabBarController
+        self.present(vc!, animated: true, completion: nil)
     }
 }
