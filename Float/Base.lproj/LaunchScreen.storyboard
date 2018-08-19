@@ -18,14 +18,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-m4-9Jo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wsm-m4-9Jo">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-fc-8cl">
+                            <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Background" translatesAutoresizingMaskIntoConstraints="NO" id="3wT-fc-8cl">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Float up ideas and see what others think" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evb-mb-dZc">
                                 <rect key="frame" x="35" y="631" width="305" height="16"/>
@@ -42,11 +40,19 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="3wT-fc-8cl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1nt-Pw-eSe"/>
+                            <constraint firstItem="3wT-fc-8cl" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="Bxq-ul-Uzw"/>
+                            <constraint firstItem="Wsm-m4-9Jo" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="EEK-Re-aCD"/>
+                            <constraint firstItem="Wsm-m4-9Jo" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="IKz-KP-O9x"/>
                             <constraint firstItem="ia0-hO-ZVb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="IUz-kX-gZZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="evb-mb-dZc" secondAttribute="trailing" constant="35" id="RgV-Za-Qar"/>
                             <constraint firstItem="ia0-hO-ZVb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="Tsw-OI-b0F"/>
+                            <constraint firstItem="3wT-fc-8cl" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="UMd-4e-f7V"/>
                             <constraint firstItem="evb-mb-dZc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="35" id="VS5-cr-QeF"/>
+                            <constraint firstItem="3wT-fc-8cl" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="X6B-8K-qbZ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="evb-mb-dZc" secondAttribute="bottom" constant="20" id="gkC-7o-aNs"/>
+                            <constraint firstItem="Wsm-m4-9Jo" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="pte-7u-CYs"/>
+                            <constraint firstItem="Wsm-m4-9Jo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tN6-d9-3It"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

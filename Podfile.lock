@@ -35,6 +35,9 @@ PODS:
   - "GoogleToolboxForMac/NSData+zlib (2.1.4)":
     - GoogleToolboxForMac/Defines (= 2.1.4)
   - GTMSessionFetcher/Core (1.1.15)
+  - KRActivityIndicatorView (2.1.2)
+  - KRProgressHUD (3.2.2):
+    - KRActivityIndicatorView (= 2.1.2)
   - leveldb-library (1.20)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -48,6 +51,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - KRProgressHUD
   - paper-onboarding
 
 SPEC REPOS:
@@ -61,6 +65,8 @@ SPEC REPOS:
     - FirebaseStorage
     - GoogleToolboxForMac
     - GTMSessionFetcher
+    - KRActivityIndicatorView
+    - KRProgressHUD
     - leveldb-library
     - nanopb
     - paper-onboarding
@@ -75,10 +81,12 @@ SPEC CHECKSUMS:
   FirebaseStorage: 7ca4bb7b58a25fa647b04f524033fc7cb7eb272b
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GTMSessionFetcher: 5fa5b80fd20e439ef5f545fb2cb3ca6c6714caa2
+  KRActivityIndicatorView: 27e7a7e3da7fbc8e5405fbc4088b51cc2095a410
+  KRProgressHUD: 8872da74b1c462e15c82a8fff250a2d34ee82ea2
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   paper-onboarding: 344780cbb0bfc229cd1862f5b9bba446b23c5185
 
-PODFILE CHECKSUM: 1626fb7875a1d05b434abe90104d03aed81f56e9
+PODFILE CHECKSUM: c156f31b6751cf5e426c907d3d036aeab265d485
 
 COCOAPODS: 1.5.3

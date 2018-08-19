@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "42FD17D195FA3B5B05CE79F0B6CF447D"
-               BlueprintName = "FirebaseCore"
+               BlueprintIdentifier = "9C4AED8E7F0E8047550BDB01102B0913"
+               BlueprintName = "KRActivityIndicatorView"
                ReferencedContainer = "container:Pods.xcodeproj"
-               BuildableName = "FirebaseCore.framework">
+               BuildableName = "KRActivityIndicatorView.framework">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

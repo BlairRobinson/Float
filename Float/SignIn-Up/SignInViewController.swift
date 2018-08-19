@@ -8,6 +8,8 @@
 
 import UIKit
 import Firebase
+import KRActivityIndicatorView
+import KRProgressHUD
 
 class SignInViewController: UITableViewController {
 
@@ -30,15 +32,15 @@ class SignInViewController: UITableViewController {
     @IBAction func signInBtnPressed(_ sender: Any) {
         guard let email = emailTextField.text else {return}
         guard let password = passwordTextField.text else {return}
-         let sv = UIViewController.displaySpinner(onView: self.view)
+        KRProgressHUD.set(style: .black).set(maskType: .white).show(withMessage: "Loading..", completion: nil)
         
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error == nil && user != nil {
-                UIViewController.removeSpinner(spinner: sv)
-               self.loadNextVC()
+                KRProgressHUD.showSuccess(withMessage: "Logged in Successfully")
+                self.loadNextVC()
             }
             else {
-                self.presentErrorPopUp()
+                KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: "Email or password is incorrect")
             }
         }
     }

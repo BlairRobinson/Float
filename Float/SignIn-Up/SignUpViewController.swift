@@ -8,8 +8,9 @@
 
 import UIKit
 import Firebase
-import Photos
-import CoreGraphics
+import KRProgressHUD
+import KRActivityIndicatorView
+
 
 class SignUpViewController: UITableViewController {
     
@@ -47,7 +48,7 @@ class SignUpViewController: UITableViewController {
         guard let password = passwordTextField.text else {return}
         guard let profilePic = profileImage.image else {return}
         
-        let sv = UIViewController.displaySpinner(onView: self.view)
+        KRProgressHUD.set(style: .black).set(maskType: .white).show(withMessage: "Loading..", completion: nil)
         
             Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
                 if error == nil && user != nil {
@@ -61,23 +62,23 @@ class SignUpViewController: UITableViewController {
                                     print("Worked")
                                     self.saveProfileImage(name: fullName, email: email, profileImageURL: url!) { success in
                                         if success {
-                                            UIViewController.removeSpinner(spinner: sv)
+                                            KRProgressHUD.showSuccess(withMessage: "Account created successfully")
                                             self.loadNextVC()
                                         } else {
-                                            self.presentErrorPopUp(message: (error?.localizedDescription)!)
+                                            KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
                                         }
                                     }
                                 } else {
-                                    self.presentErrorPopUp(message: (error?.localizedDescription)!)
+                                   KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
                                 }
                             })
                         } else {
-                            self.presentErrorPopUp(message: (error?.localizedDescription)!)
+                            KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
                         }
                         
                     })
                 } else {
-                    self.presentErrorPopUp(message: (error?.localizedDescription)!)
+                   KRProgressHUD.set(deadlineTime: Double(2)).showError(withMessage: error?.localizedDescription)
                 }
             
         }

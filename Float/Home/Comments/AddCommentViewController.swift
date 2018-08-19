@@ -22,7 +22,7 @@ class AddCommentViewController: UIViewController, UITextViewDelegate {
         self.addBtn.layer.cornerRadius = 15
         floatTextView.text = "Write your comment here..."
         floatTextView.textColor = UIColor.lightGray
-        
+
         NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
         

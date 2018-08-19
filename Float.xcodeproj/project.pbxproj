@@ -31,7 +31,6 @@
 		EAC1BC76211EFBD700EACC95 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */; };
 		EAC2C8EF212849BA009C98AA /* ExplainationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */; };
 		EAC2C8F1212851C6009C98AA /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8F0212851C6009C98AA /* Onboarding.swift */; };
-		EAC2C8F3212866E8009C98AA /* LoadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8F2212866E8009C98AA /* LoadExtension.swift */; };
 		EACF98AC20FB5F24000CF74E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF98AB20FB5F24000CF74E /* HomeViewController.swift */; };
 		EACF98AE20FB80EC000CF74E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */; };
 		EAD6451420FA71870038541C /* FloatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6451320FA71870038541C /* FloatTableViewController.swift */; };
@@ -67,7 +66,6 @@
 		EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainationViewController.swift; sourceTree = "<group>"; };
 		EAC2C8F0212851C6009C98AA /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
-		EAC2C8F2212866E8009C98AA /* LoadExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadExtension.swift; sourceTree = "<group>"; };
 		EACF98AB20FB5F24000CF74E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAD6451320FA71870038541C /* FloatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatTableViewController.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */,
 				EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */,
 				EAC2C8F0212851C6009C98AA /* Onboarding.swift */,
-				EAC2C8F2212866E8009C98AA /* LoadExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -303,6 +300,8 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Float/Pods-Float-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KRActivityIndicatorView/KRActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/KRProgressHUD/KRProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 				"${BUILT_PRODUCTS_DIR}/paper-onboarding/paper_onboarding.framework",
@@ -311,6 +310,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KRProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/paper_onboarding.framework",
@@ -367,7 +368,6 @@
 				EAC2C8EF212849BA009C98AA /* ExplainationViewController.swift in Sources */,
 				EA255C8520FBD76100019635 /* ProfileViewController.swift in Sources */,
 				EA2DD5432106769500B330DB /* ImageService.swift in Sources */,
-				EAC2C8F3212866E8009C98AA /* LoadExtension.swift in Sources */,
 				EACF98AC20FB5F24000CF74E /* HomeViewController.swift in Sources */,
 				EA3EA92420F3C47B0036FCBB /* AppDelegate.swift in Sources */,
 			);
