@@ -20,6 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         FirebaseApp.configure()
         
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                UserService.observeUserProfile((user?.uid)!, completion: { (userProfile) in
+                    UserService.currentUserProf = userProfile
+                })
+            } else {
+                UserService.currentUserProf = nil
+            }
+        }
+        
         return true
     }
 

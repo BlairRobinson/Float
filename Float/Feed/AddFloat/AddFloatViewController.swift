@@ -69,7 +69,7 @@ class AddFloatViewController: UIViewController, UITextViewDelegate {
     @IBAction func addFloatBtnPressed(_ sender: Any) {
         guard let userProfile = UserService.currentUserProf else {return}
         
-        let postRef = Database.database().reference().child("floats").childByAutoId()
+        let postRef = Connections.databaseRefFloats.childByAutoId()
         if(floatTextView.text != "Write your idea here..."){
             let postObject = [
                 "author": [

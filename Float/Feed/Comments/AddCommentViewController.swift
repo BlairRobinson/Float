@@ -72,7 +72,7 @@ class AddCommentViewController: UIViewController, UITextViewDelegate {
     @IBAction func addCommentBtnPressed(_ sender: Any) {
         guard let userProfile = UserService.currentUserProf else {return}
         
-        let ref = Database.database().reference().child("Comments")
+        let ref = Connections.databaseRefComments
         let childRef = ref.childByAutoId()
         if let text = floatTextView.text, floatTextView.text != "Write your comment here..." {
             let values = ["author": userProfile.fullName, "photoURL": userProfile.profileURL.absoluteString, "text": text, "floatId": floatId, "timestamp": [".sv":"timestamp"]] as [String : Any]

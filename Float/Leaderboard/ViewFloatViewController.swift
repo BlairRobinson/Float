@@ -13,7 +13,8 @@ class ViewFloatViewController: UIViewController {
 
     var float: Float!
     var hasDisliked:Bool = true
-     let cUId = Auth.auth().currentUser!.uid
+    let cUId = Auth.auth().currentUser!.uid
+    var ranked: Int!
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var writtenBy: UILabel!
@@ -22,6 +23,7 @@ class ViewFloatViewController: UIViewController {
     @IBOutlet weak var likes: UILabel!
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
+    @IBOutlet weak var rank: UILabel!
     
     
     override func viewDidLoad() {
@@ -34,6 +36,7 @@ class ViewFloatViewController: UIViewController {
         self.text.text = float.float_idea
         self.likes.text = String(float.likes)
         self.comments.text = String(float.comments)
+        self.rank.text = String(ranked)
         
         if float.peopleWholikes.contains(cUId){
             hasDisliked = false

@@ -28,12 +28,12 @@ class ExplainationViewController: UIViewController, PaperOnboardingDataSource, P
         let backgroundColourOne = UIColor(red: 255/255, green: 74/255, blue: 0/255, alpha: 1)
         let backgroundColourTwo = UIColor(red: 69/255, green: 179/255, blue: 157/255, alpha: 1)
         let titleFont = UIFont(name: "Avenir-Black", size: 28)!
-        let descFont = UIFont(name: "Avenir-Book", size: 13)!
+        let descFont = UIFont(name: "Avenir-Book", size: 14)!
         
         return [
             OnboardingItemInfo(informationImage: UIImage(named: "create")!,
-                           title: "Float up your idea",
-                           description: "Have an idea and want to see what others think? Float up an idea and get feeback on your idea.",
+                           title: "Float Up Your Idea",
+                           description: "Have an idea and want to see what others think? Float up your thoughts and get feedback.",
                            pageIcon: UIImage(),
                            color: backgroundColourOne,
                            titleColor: UIColor.white,
@@ -41,8 +41,8 @@ class ExplainationViewController: UIViewController, PaperOnboardingDataSource, P
                            titleFont: titleFont,
                            descriptionFont: descFont),
             OnboardingItemInfo(informationImage: UIImage(named: "Idea")!,
-                               title: "Like others ideas",
-                               description: "We all associate a bulb lighting up when someone has a good idea. So click the bulb to light it up if you think its a good idea.",
+                               title: "Like Other's Ideas",
+                               description: "If you think someone has a good idea, why not give it a like, by lighting up their bulb.",
                                pageIcon: UIImage(),
                                color: backgroundColourTwo,
                                titleColor: UIColor.white,
@@ -50,8 +50,8 @@ class ExplainationViewController: UIViewController, PaperOnboardingDataSource, P
                                titleFont: titleFont,
                                descriptionFont: descFont),
             OnboardingItemInfo(informationImage: UIImage(named: "comment")!,
-                               title: "Comment on other idas",
-                               description: "Contribute to others ideas by telling them what you think, by leaving them a comment.",
+                               title: "Comment On Other Ideas",
+                               description: "Tell others what you think, or what they could improve, by leaving them a comment.",
                                pageIcon: UIImage(),
                                color: backgroundColourOne,
                                titleColor: UIColor.white,

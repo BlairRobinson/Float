@@ -56,7 +56,7 @@ class LeaderboardTableViewController: UITableViewController {
         activityIndicator.startAnimating()
         UIApplication.shared.beginIgnoringInteractionEvents()
         
-        let floatRef = Database.database().reference().child("floats")
+        let floatRef = Connections.databaseRefFloats
         floatRef.observe(.value) { (snapshot) in
             self.activityIndicator.stopAnimating()
             self.activityIndicator.isHidden = true
@@ -104,6 +104,7 @@ class LeaderboardTableViewController: UITableViewController {
             let cell = sender as? UITableViewCell {
             if let indexPath = tableView.indexPath(for: cell) {
                 destinationVC.float = floats[indexPath.row]
+                destinationVC.ranked = indexPath.row + 1
             }
         }
     }
