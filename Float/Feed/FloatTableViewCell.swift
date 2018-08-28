@@ -20,7 +20,7 @@ class FloatTableViewCell: UITableViewCell {
     @IBOutlet weak var float_written_by: UILabel!
     @IBOutlet weak var float_when_written: UILabel!
     @IBOutlet weak var float_description: UILabel!
-    @IBOutlet weak var profile_pic: UIImageView!
+    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var float_likes: UILabel!
     @IBOutlet weak var float_comments: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
@@ -48,7 +48,7 @@ class FloatTableViewCell: UITableViewCell {
     }
     
     override func layoutSubviews() {
-        self.profile_pic.layer.cornerRadius = profile_pic.frame.height / 2.0
+        self.profilePic.layer.cornerRadius = profilePic.frame.height / 2.0
         self.selectionStyle = UITableViewCellSelectionStyle.none
         if float.peopleWholikes.contains(cUId){
             hasDisliked = false
@@ -62,7 +62,7 @@ class FloatTableViewCell: UITableViewCell {
     var float: Float!{
         didSet{
             ImageService.getImage(withURL: float.user.profileURL) { (image) in
-                self.profile_pic.image = image
+                self.profilePic.image = image
             }
             
             float_written_by.text = float.user.fullName

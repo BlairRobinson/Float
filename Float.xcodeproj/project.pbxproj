@@ -37,6 +37,9 @@
 		EAD6451420FA71870038541C /* FloatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6451320FA71870038541C /* FloatTableViewController.swift */; };
 		EAD7CCD82122096C00122DA5 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7CCD72122096C00122DA5 /* Comment.swift */; };
 		EAD7CCDA2122111F00122DA5 /* CommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD7CCD92122111F00122DA5 /* CommentTableViewCell.swift */; };
+		EAFDBA362135B8CD008511B3 /* MessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFDBA352135B8CD008511B3 /* MessageTableViewController.swift */; };
+		EAFDBA382135B96A008511B3 /* NewMessageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFDBA372135B96A008511B3 /* NewMessageTableViewController.swift */; };
+		EAFDBA3A2135CA25008511B3 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFDBA392135CA25008511B3 /* UserTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		EAD6451320FA71870038541C /* FloatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatTableViewController.swift; sourceTree = "<group>"; };
 		EAD7CCD72122096C00122DA5 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		EAD7CCD92122111F00122DA5 /* CommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewCell.swift; sourceTree = "<group>"; };
+		EAFDBA352135B8CD008511B3 /* MessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageTableViewController.swift; sourceTree = "<group>"; };
+		EAFDBA372135B96A008511B3 /* NewMessageTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageTableViewController.swift; sourceTree = "<group>"; };
+		EAFDBA392135CA25008511B3 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		F0E9E358AFF9658E17D12E6A /* Pods-Float.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Float.release.xcconfig"; path = "Pods/Target Support Files/Pods-Float/Pods-Float.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -151,6 +157,7 @@
 		EA3EA92220F3C47B0036FCBB /* Float */ = {
 			isa = PBXGroup;
 			children = (
+				EAFDBA342135B89C008511B3 /* Messages */,
 				EA28CBD521306C6200EC0DA5 /* Database */,
 				EA2DD5412106767E00B330DB /* Services */,
 				EAAEE23B21039B8F007D9B08 /* Extensions */,
@@ -246,6 +253,16 @@
 				EAAE81B320FFD58100EF7CF0 /* SignInViewController.swift */,
 			);
 			path = "SignIn-Up";
+			sourceTree = "<group>";
+		};
+		EAFDBA342135B89C008511B3 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				EAFDBA352135B8CD008511B3 /* MessageTableViewController.swift */,
+				EAFDBA372135B96A008511B3 /* NewMessageTableViewController.swift */,
+				EAFDBA392135CA25008511B3 /* UserTableViewCell.swift */,
+			);
+			path = Messages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EA28CBD721306CB800EC0DA5 /* Constants.swift in Sources */,
+				EAFDBA382135B96A008511B3 /* NewMessageTableViewController.swift in Sources */,
 				EA802BE420F5385D0028587B /* LeaderboardTableViewCell.swift in Sources */,
 				EA3EA93E20F3E9F20036FCBB /* FloatTableViewCell.swift in Sources */,
 				EA2DD5402106609A00B330DB /* UserService.swift in Sources */,
@@ -388,9 +406,11 @@
 				EA3EA94520F3EA560036FCBB /* User.swift in Sources */,
 				EACF98AE20FB80EC000CF74E /* SignUpViewController.swift in Sources */,
 				EA31FCA42124AE5300C3E814 /* ViewFloatViewController.swift in Sources */,
+				EAFDBA3A2135CA25008511B3 /* UserTableViewCell.swift in Sources */,
 				EAAEE23D21039BC5007D9B08 /* KeyboardExtension.swift in Sources */,
 				EAAE81B420FFD58100EF7CF0 /* SignInViewController.swift in Sources */,
 				EAD6451420FA71870038541C /* FloatTableViewController.swift in Sources */,
+				EAFDBA362135B8CD008511B3 /* MessageTableViewController.swift in Sources */,
 				EA2DD53E21064B1800B330DB /* AddFloatViewController.swift in Sources */,
 				EAD7CCD82122096C00122DA5 /* Comment.swift in Sources */,
 				EAC2C8EF212849BA009C98AA /* ExplainationViewController.swift in Sources */,
