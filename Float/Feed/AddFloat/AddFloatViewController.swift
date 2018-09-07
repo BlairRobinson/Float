@@ -9,11 +9,13 @@
 import UIKit
 import Firebase
 
-class AddFloatViewController: UIViewController, UITextViewDelegate {
-
+class AddFloatViewController: UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
  
     @IBOutlet weak var addBtn: UIButton!
     @IBOutlet weak var floatTextView: UITextView!
+    @IBOutlet weak var floatTitle: UITextField!
+    @IBOutlet weak var floatCategory: UITextField!
+    var picker = UIPickerView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +26,10 @@ class AddFloatViewController: UIViewController, UITextViewDelegate {
        
         NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        
+        picker.delegate = self
+        picker.dataSource = self
+        floatCategory.inputView = picker
     }
 
     
@@ -78,11 +84,13 @@ class AddFloatViewController: UIViewController, UITextViewDelegate {
                     "email": userProfile.email,
                     "photoURL": userProfile.profileURL.absoluteString
                 ],
+                "title": floatTitle.text,
                 "floatDescription": floatTextView.text,
                 "timestamp": [".sv":"timestamp"],
                 "comments": 0,
                 "peopleWholikes": ["0"],
-                "likes": 0
+                "likes": 0,
+                "category": floatCategory.text
                 ] as [String:Any]
             
             postRef.setValue(postObject) { (error, ref) in
@@ -107,6 +115,24 @@ class AddFloatViewController: UIViewController, UITextViewDelegate {
     func loadNextVC() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "floatNavigation")
         self.present(vc!, animated: true, completion: nil)
+    }
+    
+    var categorys = ["Charity", "General", "Education", "Health", "Technology", "Music", "Jobs" ]
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return categorys.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        floatCategory.text = categorys[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return categorys[row]
     }
 
 }

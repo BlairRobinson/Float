@@ -90,10 +90,12 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
                     let time = dict["timestamp"] as? Double,
                     let peopleWholikes = dict["peopleWholikes"] as? [String],
                     let comments = dict["comments"] as? Int,
-                    let likes = dict["likes"] as? Int{
+                    let likes = dict["likes"] as? Int,
+                    let category = dict["category"] as? String,
+                    let title = dict["title"] as? String{
                 
                     let userProfile = User(uid: uid, email: email, profileURL: url, fullName: name)
-                    let float = Float(id: childSnapshot.key, float_idea: desc, user: userProfile, timestamp: time,  peopleWholikes: peopleWholikes, comments: comments, likes: likes)
+                    let float = Float(id: childSnapshot.key, title: title, float_idea: desc, user: userProfile, timestamp: time,  peopleWholikes: peopleWholikes, comments: comments, likes: likes, category: category)
                     tempFloat.insert(float, at: 0)
                     }
             }

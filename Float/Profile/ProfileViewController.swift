@@ -15,18 +15,11 @@ class ProfileViewController: UITableViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    var activityIndicator: UIActivityIndicatorView!
     var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImage.layer.cornerRadius = profileImage.frame.height / 2.0
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:
-            UIActivityIndicatorViewStyle.gray)
-        activityIndicator.hidesWhenStopped = true;
-        activityIndicator.isHidden = true
-        activityIndicator.center = view.center;
-        tableView.addSubview(activityIndicator)
         loadUserData()
     }
 
@@ -38,9 +31,6 @@ class ProfileViewController: UITableViewController {
     
     
     func loadUserData() {
-        activityIndicator.isHidden = false
-        activityIndicator.startAnimating()
-        UIApplication.shared.beginIgnoringInteractionEvents()
         let currentId = Auth.auth().currentUser?.uid
         
         Database.database().reference().child("users").child("profile").child(currentId!).observeSingleEvent(of: .value) { (snapshot) in
@@ -57,11 +47,6 @@ class ProfileViewController: UITableViewController {
                     self.nameLabel.text = name
                     self.titleName.text = name
                         
-                        self.user = User(uid: currentId!, email: email, profileURL: url.absoluteURL, fullName: name)
-                        
-                    self.activityIndicator.stopAnimating()
-                    self.activityIndicator.isHidden = true
-                    UIApplication.shared.endIgnoringInteractionEvents()
                 } else {
                     print("error occurred")
                 }

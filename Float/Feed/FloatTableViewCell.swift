@@ -25,6 +25,8 @@ class FloatTableViewCell: UITableViewCell {
     @IBOutlet weak var float_comments: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var rank: UILabel!
+    @IBOutlet weak var card: UIView!
+    @IBOutlet weak var cardColour: UIView!
     
 
     @IBAction func commentBtnPressed(_ sender: Any) {
@@ -50,6 +52,13 @@ class FloatTableViewCell: UITableViewCell {
     override func layoutSubviews() {
         self.profilePic.layer.cornerRadius = profilePic.frame.height / 2.0
         self.selectionStyle = UITableViewCellSelectionStyle.none
+        card.layer.cornerRadius = 10
+        cardColour.layer.cornerRadius = 10
+        cardColour.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        card.layer.shadowColor = UIColor.black.cgColor
+        card.layer.shadowOffset = CGSize(width: 0, height: 4.0)
+        card.layer.shadowOpacity = 0.4
+        card.layer.shadowRadius = 4.0
         if float.peopleWholikes.contains(cUId){
             hasDisliked = false
            likeBtn.setImage(UIImage(named: "LikeBtnPressed"), for: .normal)
@@ -57,6 +66,7 @@ class FloatTableViewCell: UITableViewCell {
             hasDisliked = true
             likeBtn.setImage(UIImage(named: "Like"), for: .normal)
         }
+        
     }
     
     var float: Float!{
@@ -71,6 +81,7 @@ class FloatTableViewCell: UITableViewCell {
             float_likes.text = String(float.likes)
             float_comments.text = String(float.comments)
             currentLikes = float.likes
+            cardColour.backgroundColor = float.color
         }
     }
     
@@ -89,6 +100,7 @@ class FloatTableViewCell: UITableViewCell {
         
         return formatter.string(from: date as Date)
     }
+    
 }
 
 
