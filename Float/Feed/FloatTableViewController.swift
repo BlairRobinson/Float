@@ -20,7 +20,7 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpButton()
         self.tabBarController?.delegate = self
         
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -107,18 +107,34 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
                 self.hasInitallyLoaded = true
             }
             
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(3), execute: {
                 self.refreshControl?.endRefreshing()
             })
         }
     }
+    
+    func setUpButton() {
+        let button = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width - 60, y: 35), size: CGSize(width: 50, height: 50)))
+        button.setBackgroundImage(UIImage(named: "addButton"), for: .normal)
+        self.navigationController?.view.addSubview(button)
+        
+        button.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
+    }
+    
+    @objc func buttonClicked() {
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddFloat") as? UINavigationController
+        self.present(vc!, animated: true, completion: nil)
+    }
+    
+    
+    
     
     override func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.y
         if offset > 30 {
            // offset = 1
             self.navigationController?.navigationBar.topItem?.title = "Floats"
+            
         } else {
             self.navigationController?.navigationBar.topItem?.title = nil
         }

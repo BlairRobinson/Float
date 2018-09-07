@@ -12,7 +12,7 @@ class LeaderboardTableViewCell: UITableViewCell {
     
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var profile_pic: UIImageView!
-    @IBOutlet weak var written_by: UILabel!
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var when_written: UILabel!
     @IBOutlet weak var likes: UILabel!
     
@@ -26,7 +26,7 @@ class LeaderboardTableViewCell: UITableViewCell {
             ImageService.getImage(withURL: float.user.profileURL) { (image) in
                 self.profile_pic.image = image
             }
-            written_by.text = float.user.fullName
+            title.text = float.title
             when_written.text = FloatTableViewCell.convertTimestamp(serverTimestamp: float.timestamp)
             likes.text = String(float.peopleWholikes.count - 1)
         }

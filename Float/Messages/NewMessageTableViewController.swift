@@ -12,6 +12,7 @@ import Firebase
 class NewMessageTableViewController: UITableViewController {
     
     var users = [User]()
+    static var messagesController: MessageTableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,11 @@ class NewMessageTableViewController: UITableViewController {
         return cell
     }
 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let user = self.users[indexPath.row]
+        NewMessageTableViewController.messagesController?.showChatControllerForUser(user: user)
+    }
+    
     @IBAction func backBtnPressed(_ sender: Any) {
        self.navigationController?.popToRootViewController(animated: true)
     }

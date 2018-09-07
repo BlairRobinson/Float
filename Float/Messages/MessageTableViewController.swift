@@ -7,43 +7,116 @@
 //
 
 import UIKit
+import Firebase
 
 class MessageTableViewController: UITableViewController {
 
     @IBOutlet weak var newMessageBtn: UIButton!
+    var messages = [Message]()
+    var messageDictionary = [String : Message]()
+    var activityIndicator: UIActivityIndicatorView!
+    var timer: Timer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         newMessageBtn.layer.cornerRadius = 15
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:
+            UIActivityIndicatorViewStyle.gray)
+        activityIndicator.hidesWhenStopped = true;
+        activityIndicator.isHidden = true
+        activityIndicator.center = view.center;
+        tableView.addSubview(activityIndicator)
+        messages.removeAll()
+        messageDictionary.removeAll()
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        observeUserMessages()
     }
+
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return messages.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "message", for: indexPath) as! MessagesTableViewCell
+        let message = messages[indexPath.item]
+        cell.message = message
 
-        
         return cell
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let message = messages[indexPath.row]
+        
+        let ref = Database.database().reference().child("users").child("profile").child(message.chatPartnerId()!)
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            guard let dict = snapshot.value as? [String: Any] else {return}
+            if let name = dict["name"] as? String,
+                let email = dict["email"] as? String,
+                let photoURL = dict["photoURL"] as? String,
+                let url = URL(string: photoURL) {
+                let user = User(uid: snapshot.key, email: email, profileURL: url, fullName: name)
+                self.showChatControllerForUser(user: user)
+            }
+            
+        }
     }
-    */
+    
+    @IBAction func newBtnPressed(_ sender: Any) {
+        NewMessageTableViewController.messagesController = self
+    }
+    
+    func showChatControllerForUser(user: User) {
+        let chatController = ChatViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        chatController.user = user
+        self.navigationController?.pushViewController(chatController, animated: true)
+    }
+    
+    func observeUserMessages() {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+         let ref = Database.database().reference().child("user-messages").child(uid)
+        ref.observe(.childAdded) { (snapshot) in
+            let userId = snapshot.key
+            Database.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot) in
+                let messageId = snapshot.key
+                let messageRef = Database.database().reference().child("messages").child(messageId)
+                messageRef.observeSingleEvent(of: .value, with: { (snapshot) in
+                    if let dict = snapshot.value as? [String : AnyObject] {
+                        let message = Message(fromId: dict["fromId"] as! String, text: dict["text"] as! String, toId: dict["toId"] as! String, timeStamp: dict["timestamp"] as! Int)
+                        self.messageDictionary[message.chatPartnerId()!] = message
+                    }
+                    self.attemptReloadOfTable()
 
+                })
+            })
+        }
+        activityIndicator.isHidden = true
+        activityIndicator.stopAnimating()
+    }
+    
+    private func attemptReloadOfTable() {
+        self.timer?.invalidate()
+        self.timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.handleReloadTable), userInfo: nil, repeats: false)
+    }
+    
+    @objc func handleReloadTable() {
+        self.messages = Array(self.messageDictionary.values)
+        self.messages.sort(by: { (message1, message2) -> Bool in
+            return Int(message1.timeStamp) > Int(message2.timeStamp)
+        })
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
 }
