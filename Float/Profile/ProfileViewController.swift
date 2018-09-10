@@ -15,11 +15,23 @@ class ProfileViewController: UITableViewController {
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    var user: User!
+    @IBOutlet weak var postsLabel: UILabel!
+    @IBOutlet weak var likesLabel: UILabel!
+    
+    var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         profileImage.layer.cornerRadius = profileImage.frame.height / 2.0
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:
+            UIActivityIndicatorViewStyle.gray)
+        activityIndicator.hidesWhenStopped = true;
+        activityIndicator.isHidden = true
+        activityIndicator.center = view.center;
+        tableView.addSubview(activityIndicator)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         loadUserData()
     }
 
@@ -32,7 +44,6 @@ class ProfileViewController: UITableViewController {
     
     func loadUserData() {
         let currentId = Auth.auth().currentUser?.uid
-        
         Database.database().reference().child("users").child("profile").child(currentId!).observeSingleEvent(of: .value) { (snapshot) in
                     if let dict = snapshot.value as? [String:Any],
                     let name = dict["name"] as? String,
@@ -51,6 +62,29 @@ class ProfileViewController: UITableViewController {
                     print("error occurred")
                 }
         }
+        
+        let floatRef = Database.database().reference().child("floats")
+        floatRef.observe(.value) { (snapshot) in
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            UIApplication.shared.endIgnoringInteractionEvents()
+            var tempPosts: Int = 0
+            var tempLikes: Int = 0
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let author =  dict["author"] as? [String: Any],
+                    let uid = author["uid"] as? String,
+                    let likes = dict["likes"] as? Int{
+                    if uid == currentId! {
+                        tempPosts += 1
+                        tempLikes = likes
+                    }
+                }
+            }
+            self.postsLabel.text = String(tempPosts)
+            self.likesLabel.text = String(tempLikes)
+    }
     }
     
     @IBAction func changePassBtnPressed(_ sender: Any) {

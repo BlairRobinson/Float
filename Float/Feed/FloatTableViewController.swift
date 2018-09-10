@@ -15,12 +15,13 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
     var activityIndicator: UIActivityIndicatorView!
     var taps: Int = 0
     var leaderboard = [Float]()
+    private var roundButton = UIButton()
     
     var hasInitallyLoaded = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpButton()
+        //setUpButton()
         self.tabBarController?.delegate = self
         
         self.navigationController?.navigationBar.shadowImage = UIImage()
@@ -33,16 +34,26 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
         tableView.addSubview(activityIndicator)
         
         tableView.refreshControl = UIRefreshControl()
-        refreshControl?.backgroundColor = UIColor(red: 255/255, green: 29/255, blue: 0/255, alpha:1)
+        refreshControl?.backgroundColor = UIColor(red: 255/255, green: 96/255, blue: 0/255, alpha:1)
         refreshControl?.tintColor = UIColor.white
         refreshControl?.addTarget(self, action: #selector(self.observeFloats), for: .valueChanged)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         observeFloats()
+        createFloatingButton()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if roundButton.superview != nil {
+            DispatchQueue.main.async {
+                self.roundButton.removeFromSuperview()
+            }
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -113,14 +124,6 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
         }
     }
     
-    func setUpButton() {
-        let button = UIButton(frame: CGRect(origin: CGPoint(x: self.view.frame.width - 60, y: 35), size: CGSize(width: 50, height: 50)))
-        button.setBackgroundImage(UIImage(named: "addButton"), for: .normal)
-        self.navigationController?.view.addSubview(button)
-        
-        button.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
-    }
-    
     @objc func buttonClicked() {
         let vc = self.storyboard?.instantiateViewController(withIdentifier: "AddFloat") as? UINavigationController
         self.present(vc!, animated: true, completion: nil)
@@ -148,6 +151,42 @@ class FloatTableViewController: UITableViewController, UITabBarControllerDelegat
             if taps % 2 == 0{
                 self.tableView.setContentOffset(.zero, animated: true)
             }
+        }
+    }
+    
+    func createFloatingButton() {
+        roundButton = UIButton(type: .custom)
+        roundButton.translatesAutoresizingMaskIntoConstraints = false
+        // Make sure you replace the name of the image:
+        roundButton.setImage(UIImage(named:"addButton"), for: .normal)
+        // Make sure to create a function and replace DOTHISONTAP with your own function:
+        roundButton.addTarget(self, action: #selector(buttonClicked), for: UIControlEvents.touchUpInside)
+        // We're manipulating the UI, must be on the main thread:
+        DispatchQueue.main.async {
+            if let keyWindow = UIApplication.shared.keyWindow {
+                keyWindow.addSubview(self.roundButton)
+                NSLayoutConstraint.activate([
+                    keyWindow.trailingAnchor.constraint(equalTo: self.roundButton.trailingAnchor, constant: 15),
+                    keyWindow.topAnchor.constraint(equalTo: self.roundButton.topAnchor, constant: -95),
+                    self.roundButton.widthAnchor.constraint(equalToConstant: 50),
+                    self.roundButton.heightAnchor.constraint(equalToConstant: 50)])
+            }
+            // Make the button round:
+            self.roundButton.layer.cornerRadius = 37.5
+            // Add a black shadow:
+            self.roundButton.layer.shadowColor = UIColor.black.cgColor
+            self.roundButton.layer.shadowOffset = CGSize(width: 0.0, height: 5.0)
+            self.roundButton.layer.masksToBounds = false
+            self.roundButton.layer.shadowRadius = 2.0
+            self.roundButton.layer.shadowOpacity = 0.5
+            // Add a pulsing animation to draw attention to button:
+            let scaleAnimation: CABasicAnimation = CABasicAnimation(keyPath: "transform.scale")
+            scaleAnimation.duration = 0.4
+            scaleAnimation.repeatCount = .greatestFiniteMagnitude
+            scaleAnimation.autoreverses = true
+            scaleAnimation.fromValue = 1.0;
+            scaleAnimation.toValue = 1.05;
+            self.roundButton.layer.add(scaleAnimation, forKey: "scale")
         }
     }
 }

@@ -53,11 +53,12 @@ class FloatTableViewCell: UITableViewCell {
         self.profilePic.layer.cornerRadius = profilePic.frame.height / 2.0
         self.selectionStyle = UITableViewCellSelectionStyle.none
         card.layer.cornerRadius = 10
+        cardColour.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 0.8)
         cardColour.layer.cornerRadius = 10
         cardColour.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
         card.layer.shadowColor = UIColor.black.cgColor
-        card.layer.shadowOffset = CGSize(width: 0, height: 4.0)
-        card.layer.shadowOpacity = 0.4
+        card.layer.shadowOffset = CGSize(width: 0, height: 3.5)
+        card.layer.shadowOpacity = 0.5
         card.layer.shadowRadius = 4.0
         if float.peopleWholikes.contains(cUId){
             hasDisliked = false
@@ -81,7 +82,6 @@ class FloatTableViewCell: UITableViewCell {
             float_likes.text = String(float.likes)
             float_comments.text = String(float.comments)
             currentLikes = float.likes
-            cardColour.backgroundColor = float.color
         }
     }
     
@@ -93,12 +93,9 @@ class FloatTableViewCell: UITableViewCell {
     
     public static func convertTimestamp(serverTimestamp: Double) -> String {
         let x = serverTimestamp / 1000
-        let date = NSDate(timeIntervalSince1970: x)
-        let formatter = DateFormatter()
-        formatter.dateStyle = .long
-        formatter.timeStyle = .short
+        let date = Date(timeIntervalSince1970: x)
         
-        return formatter.string(from: date as Date)
+        return date.timeAgoDisplay()
     }
     
 }

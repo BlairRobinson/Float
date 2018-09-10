@@ -13,7 +13,7 @@ class LeaderboardTableViewCell: UITableViewCell {
     @IBOutlet weak var rank: UILabel!
     @IBOutlet weak var profile_pic: UIImageView!
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var when_written: UILabel!
+    @IBOutlet weak var by_Who: UILabel!
     @IBOutlet weak var likes: UILabel!
     
     
@@ -27,7 +27,7 @@ class LeaderboardTableViewCell: UITableViewCell {
                 self.profile_pic.image = image
             }
             title.text = float.title
-            when_written.text = FloatTableViewCell.convertTimestamp(serverTimestamp: float.timestamp)
+            by_Who.text = float.user.fullName
             likes.text = String(float.peopleWholikes.count - 1)
         }
     }

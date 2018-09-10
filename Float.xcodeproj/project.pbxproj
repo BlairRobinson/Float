@@ -33,9 +33,9 @@
 		EAAE81B420FFD58100EF7CF0 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAE81B320FFD58100EF7CF0 /* SignInViewController.swift */; };
 		EAAEE23D21039BC5007D9B08 /* KeyboardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */; };
 		EAAEE2412103A177007D9B08 /* SignUpImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */; };
-		EAC1BC76211EFBD700EACC95 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */; };
 		EAC2C8EF212849BA009C98AA /* ExplainationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */; };
 		EAC2C8F1212851C6009C98AA /* Onboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC2C8F0212851C6009C98AA /* Onboarding.swift */; };
+		EACF699B214445E800AF4F6C /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF699A214445E800AF4F6C /* Date.swift */; };
 		EACF98AC20FB5F24000CF74E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF98AB20FB5F24000CF74E /* HomeViewController.swift */; };
 		EACF98AE20FB80EC000CF74E /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */; };
 		EAD6451420FA71870038541C /* FloatTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAD6451320FA71870038541C /* FloatTableViewController.swift */; };
@@ -76,9 +76,9 @@
 		EAAE81B320FFD58100EF7CF0 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtension.swift; sourceTree = "<group>"; };
 		EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpImageExtension.swift; sourceTree = "<group>"; };
-		EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		EAC2C8EE212849BA009C98AA /* ExplainationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplainationViewController.swift; sourceTree = "<group>"; };
 		EAC2C8F0212851C6009C98AA /* Onboarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Onboarding.swift; sourceTree = "<group>"; };
+		EACF699A214445E800AF4F6C /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		EACF98AB20FB5F24000CF74E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EACF98AD20FB80EC000CF74E /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		EAD6451320FA71870038541C /* FloatTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatTableViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +249,7 @@
 			children = (
 				EAAEE23C21039BC5007D9B08 /* KeyboardExtension.swift */,
 				EAAEE2402103A177007D9B08 /* SignUpImageExtension.swift */,
+				EACF699A214445E800AF4F6C /* Date.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,7 +258,6 @@
 			isa = PBXGroup;
 			children = (
 				EA350090211B7C99007EE5CB /* CommentTableViewController.swift */,
-				EAC1BC75211EFBD700EACC95 /* AddCommentViewController.swift */,
 				EAD7CCD92122111F00122DA5 /* CommentTableViewCell.swift */,
 			);
 			path = Comments;
@@ -413,6 +413,7 @@
 				EA28CBD721306CB800EC0DA5 /* Constants.swift in Sources */,
 				EAFDBA382135B96A008511B3 /* NewMessageTableViewController.swift in Sources */,
 				EA63DF9521374857005030A1 /* MessagesTableViewCell.swift in Sources */,
+				EACF699B214445E800AF4F6C /* Date.swift in Sources */,
 				EA802BE420F5385D0028587B /* LeaderboardTableViewCell.swift in Sources */,
 				EA3EA93E20F3E9F20036FCBB /* FloatTableViewCell.swift in Sources */,
 				EA2DD5402106609A00B330DB /* UserService.swift in Sources */,
@@ -423,7 +424,6 @@
 				EA3EA94320F3EA560036FCBB /* Float.swift in Sources */,
 				EAAEE2412103A177007D9B08 /* SignUpImageExtension.swift in Sources */,
 				EA802BE620F5395E0028587B /* LeaderboardTableViewController.swift in Sources */,
-				EAC1BC76211EFBD700EACC95 /* AddCommentViewController.swift in Sources */,
 				EA3EA94520F3EA560036FCBB /* User.swift in Sources */,
 				EACF98AE20FB80EC000CF74E /* SignUpViewController.swift in Sources */,
 				EA31FCA42124AE5300C3E814 /* ViewFloatViewController.swift in Sources */,

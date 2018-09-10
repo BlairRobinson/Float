@@ -100,6 +100,7 @@ class MessageTableViewController: UITableViewController {
                 })
             })
         }
+        
         activityIndicator.isHidden = true
         activityIndicator.stopAnimating()
     }
