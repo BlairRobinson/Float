@@ -24,6 +24,8 @@ class ViewFloatViewController: UIViewController {
     @IBOutlet weak var comments: UILabel!
     @IBOutlet weak var likeBtn: UIButton!
     @IBOutlet weak var rank: UILabel!
+    @IBOutlet weak var card: UIView!
+    @IBOutlet weak var cardColour: UIView!
     
     
     override func viewDidLoad() {
@@ -47,6 +49,18 @@ class ViewFloatViewController: UIViewController {
         }
         
         self.profileImage.layer.cornerRadius = profileImage.frame.height / 2.0
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        card.layer.cornerRadius = 10
+        cardColour.backgroundColor = UIColor(red: 242/255, green: 242/255, blue: 242/255, alpha: 0.8)
+        cardColour.layer.cornerRadius = 10
+        cardColour.layer.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+        card.layer.shadowColor = UIColor.black.cgColor
+        card.layer.shadowOffset = CGSize(width: 0, height: 3.5)
+        card.layer.shadowOpacity = 0.5
+        card.layer.shadowRadius = 4.0
     }
     
     @IBAction func likeBtnPressed(_ sender: Any) {
