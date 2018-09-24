@@ -20,10 +20,10 @@ class MessageTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         newMessageBtn.layer.cornerRadius = 15
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.none
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:
-            UIActivityIndicatorViewStyle.gray)
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        activityIndicator = UIActivityIndicatorView(style:
+            UIActivityIndicatorView.Style.gray)
         activityIndicator.hidesWhenStopped = true;
         activityIndicator.isHidden = true
         activityIndicator.center = view.center;
@@ -83,6 +83,9 @@ class MessageTableViewController: UITableViewController {
     }
     
     func observeUserMessages() {
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
         guard let uid = Auth.auth().currentUser?.uid else {return}
          let ref = Database.database().reference().child("user-messages").child(uid)
         ref.observe(.childAdded) { (snapshot) in
@@ -101,8 +104,11 @@ class MessageTableViewController: UITableViewController {
             })
         }
         
-        activityIndicator.isHidden = true
-        activityIndicator.stopAnimating()
+        DispatchQueue.main.async {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            UIApplication.shared.endIgnoringInteractionEvents()
+        }
     }
     
     private func attemptReloadOfTable() {

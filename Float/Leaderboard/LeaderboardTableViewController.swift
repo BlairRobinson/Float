@@ -16,11 +16,10 @@ class LeaderboardTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.tabBarController?.tabBar.shadowImage = UIImage()
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:
-            UIActivityIndicatorViewStyle.gray)
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
+        activityIndicator = UIActivityIndicatorView(style:
+            UIActivityIndicatorView.Style.gray)
         activityIndicator.hidesWhenStopped = true;
         activityIndicator.isHidden = true
         activityIndicator.center = view.center;
@@ -46,7 +45,7 @@ class LeaderboardTableViewController: UITableViewController {
         
         let float = floats[indexPath.row]
         cell.float = float
-        cell.rank.text = String(indexPath.row + 1) + "."
+        cell.rank.text = String((floats.index{$0 === float}! + 1))
         
         return cell
     }
@@ -98,16 +97,6 @@ class LeaderboardTableViewController: UITableViewController {
             self.navigationController?.navigationBar.topItem?.title = "Leaderboard"
         } else {
             self.navigationController?.navigationBar.topItem?.title = nil
-        }
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination as? ViewFloatViewController,
-            let cell = sender as? UITableViewCell {
-            if let indexPath = tableView.indexPath(for: cell) {
-                destinationVC.float = floats[indexPath.row]
-                destinationVC.ranked = indexPath.row + 1
-            }
         }
     }
     

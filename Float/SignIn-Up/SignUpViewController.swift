@@ -103,7 +103,7 @@ class SignUpViewController: UITableViewController, UITextFieldDelegate {
     
     func uploadProfileImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
         let storageRef = Connections.storageRef
-        guard let imageData = UIImageJPEGRepresentation(image, 0.75) else {return}
+        guard let imageData = image.jpegData(compressionQuality: 0.75) else {return}
         let metaData = StorageMetadata()
         metaData.contentType = "image/jpg"
         storageRef.putData(imageData, metadata: metaData) { (metaData, error) in

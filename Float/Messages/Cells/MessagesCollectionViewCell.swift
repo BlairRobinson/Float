@@ -20,7 +20,7 @@ class MessagesCollectionViewCell: UICollectionViewCell {
         return tv
     }()
     
-    static let blueBubble = UIColor(red: 0/255, green: 137/255, blue: 249/255, alpha: 1)
+    static let blueBubble = UIColor(red: 255/255, green: 72/255, blue: 54/255, alpha:1)
     
     let bubbleView : UIView = {
        let view = UIView()

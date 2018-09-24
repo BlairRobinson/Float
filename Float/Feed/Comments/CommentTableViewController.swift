@@ -12,17 +12,17 @@ import Firebase
 class CommentTableViewController: UITableViewController, UITextFieldDelegate  {
 
     @IBOutlet var noCommentsView: UIView!
-    @IBOutlet weak var addButton: UIButton!
     var comments = [Comment]()
     var activityIndicator: UIActivityIndicatorView!
-    
+    static var viewController: String!
     static var floatId: String!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.shadowImage = UIImage()
         self.tableView.separatorStyle = .none
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle:
-            UIActivityIndicatorViewStyle.gray)
+        activityIndicator = UIActivityIndicatorView(style:
+            UIActivityIndicatorView.Style.gray)
         activityIndicator.hidesWhenStopped = true;
         activityIndicator.isHidden = true
         activityIndicator.center = view.center;
@@ -66,12 +66,15 @@ class CommentTableViewController: UITableViewController, UITextFieldDelegate  {
     }
     
     func loadNextVC() {
-        let vc = self.storyboard?.instantiateViewController(withIdentifier: "floatNavigation")
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "floatNavigation") as? UITabBarController
+        if CommentTableViewController.viewController != "Float" {
+            vc?.selectedIndex = 1
+        }
         self.present(vc!, animated: true, completion: nil)
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
-        self.loadNextVC()
+        loadNextVC()
     }
     
     func observeComments() {

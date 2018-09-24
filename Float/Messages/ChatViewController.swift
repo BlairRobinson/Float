@@ -28,7 +28,6 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         let userMessagesRef = Database.database().reference().child("user-messages").child(uid)
         userMessagesRef.observe(.childAdded) { (snapshot) in
             let userId = snapshot.key
-            print(snapshot)
             Database.database().reference().child("user-messages").child(uid).child(userId).observe(.childAdded, with: { (snapshot) in
                 let messageId = snapshot.key
                 let messagesRef = Database.database().reference().child("messages").child(messageId)
@@ -142,8 +141,8 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         }
         
         if message.fromId == Auth.auth().currentUser?.uid {
-            //blue
-            cell.bubbleView.backgroundColor = UIColor(red: 255/255, green: 96/255, blue: 0/255, alpha: 1.0)
+            //orange
+            cell.bubbleView.backgroundColor = UIColor(red: 255/255, green: 72/255, blue: 54/255, alpha:1)
             cell.textView.textColor = UIColor.white
             cell.bubbleViewRightAnchor.isActive = true
             cell.bubbleViewLeftAnchor.isActive  = false
@@ -170,7 +169,7 @@ class ChatViewController: UICollectionViewController, UITextFieldDelegate, UICol
         let size = CGSize(width: 210, height: 1000)
         let options = NSStringDrawingOptions.usesFontLeading.union(.usesLineFragmentOrigin)
         
-        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16.0)], context: nil)
+        return NSString(string: text).boundingRect(with: size, options: options, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16.0)], context: nil)
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {

@@ -25,7 +25,7 @@ class ExplainationViewController: UIViewController, PaperOnboardingDataSource, P
     }
     
     func onboardingItem(at index: Int) -> OnboardingItemInfo {
-        let backgroundColourOne = UIColor(red: 255/255, green: 74/255, blue: 0/255, alpha: 1)
+        let backgroundColourOne = UIColor(red: 255/255, green: 72/255, blue: 54/255, alpha:1)
         let backgroundColourTwo = UIColor(red: 69/255, green: 179/255, blue: 157/255, alpha: 1)
         let titleFont = UIFont(name: "Avenir-Black", size: 28)!
         let descFont = UIFont(name: "Avenir-Book", size: 14)!

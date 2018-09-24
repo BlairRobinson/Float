@@ -15,7 +15,6 @@
 		EA2DD53E21064B1800B330DB /* AddFloatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2DD53D21064B1800B330DB /* AddFloatViewController.swift */; };
 		EA2DD5402106609A00B330DB /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2DD53F2106609A00B330DB /* UserService.swift */; };
 		EA2DD5432106769500B330DB /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2DD5422106769500B330DB /* ImageService.swift */; };
-		EA31FCA42124AE5300C3E814 /* ViewFloatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA31FCA32124AE5300C3E814 /* ViewFloatViewController.swift */; };
 		EA350091211B7C99007EE5CB /* CommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA350090211B7C99007EE5CB /* CommentTableViewController.swift */; };
 		EA3EA92420F3C47B0036FCBB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA3EA92320F3C47B0036FCBB /* AppDelegate.swift */; };
 		EA3EA92920F3C47B0036FCBB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA3EA92720F3C47B0036FCBB /* Main.storyboard */; };
@@ -56,7 +55,6 @@
 		EA2DD53D21064B1800B330DB /* AddFloatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFloatViewController.swift; sourceTree = "<group>"; };
 		EA2DD53F2106609A00B330DB /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		EA2DD5422106769500B330DB /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
-		EA31FCA32124AE5300C3E814 /* ViewFloatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewFloatViewController.swift; sourceTree = "<group>"; };
 		EA350090211B7C99007EE5CB /* CommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentTableViewController.swift; sourceTree = "<group>"; };
 		EA3EA92020F3C47B0036FCBB /* Float.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Float.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA3EA92320F3C47B0036FCBB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -239,7 +237,6 @@
 			children = (
 				EA802BE320F5385D0028587B /* LeaderboardTableViewCell.swift */,
 				EA802BE520F5395E0028587B /* LeaderboardTableViewController.swift */,
-				EA31FCA32124AE5300C3E814 /* ViewFloatViewController.swift */,
 			);
 			path = Leaderboard;
 			sourceTree = "<group>";
@@ -319,6 +316,7 @@
 				TargetAttributes = {
 					EA3EA91F20F3C47B0036FCBB = {
 						CreatedOnToolsVersion = 9.4.1;
+						LastSwiftMigration = 1000;
 					};
 				};
 			};
@@ -426,7 +424,6 @@
 				EA802BE620F5395E0028587B /* LeaderboardTableViewController.swift in Sources */,
 				EA3EA94520F3EA560036FCBB /* User.swift in Sources */,
 				EACF98AE20FB80EC000CF74E /* SignUpViewController.swift in Sources */,
-				EA31FCA42124AE5300C3E814 /* ViewFloatViewController.swift in Sources */,
 				EAFDBA3A2135CA25008511B3 /* UserTableViewCell.swift in Sources */,
 				EAAEE23D21039BC5007D9B08 /* KeyboardExtension.swift in Sources */,
 				EAAE81B420FFD58100EF7CF0 /* SignInViewController.swift in Sources */,
@@ -595,7 +592,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlairRobinson.Float;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -614,7 +611,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.BlairRobinson.Float;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

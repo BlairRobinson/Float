@@ -24,8 +24,8 @@ class AddFloatViewController: UIViewController, UITextViewDelegate, UIPickerView
         floatTextView.text = "Write your idea here..."
         floatTextView.textColor = UIColor.lightGray
        
-        NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillChangeFrame, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: Notification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(AddFloatViewController.updateTextView(notification:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         
         picker.delegate = self
         picker.dataSource = self
@@ -60,9 +60,9 @@ class AddFloatViewController: UIViewController, UITextViewDelegate, UIPickerView
     
     @objc func updateTextView(notification: Notification){
         let userInfo = notification.userInfo!
-        let keyboardEndFrameScreenCoord = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardEndFrameScreenCoord = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardEndFrame = self.view.convert(keyboardEndFrameScreenCoord, to: view.window)
-        if notification.name == Notification.Name.UIKeyboardWillHide {
+        if notification.name == UIResponder.keyboardWillHideNotification {
             floatTextView.contentInset = UIEdgeInsets.zero
         } else {
             floatTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardEndFrame.height, right: 0)
