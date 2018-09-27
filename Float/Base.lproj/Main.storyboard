@@ -1599,7 +1599,7 @@
         <image name="home" width="20" height="22"/>
         <image name="messages" width="23" height="23"/>
         <image name="passwordIcon" width="30" height="35"/>
-        <image name="position" width="18" height="19"/>
+        <image name="position" width="25" height="25"/>
         <image name="profile" width="21" height="23"/>
         <image name="profileDefault" width="300" height="300"/>
         <image name="profileIcon" width="30" height="30"/>
